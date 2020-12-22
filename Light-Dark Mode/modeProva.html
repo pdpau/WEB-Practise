@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light-Dark</title>
+    <link rel="stylesheet" href="roundedSwitch.css">
+    <!-- <script src="mode.js"></script> -->
+</head>
+<body class="theme" id="theme">
+    <!-- HTML -->
+    <div>
+        <p class="displayTitle" id="displayTitle">Light Mode</p>
+    </div>
+
+    <div class="divSwitch">
+        <label class="switch">
+            <input type="checkbox" id="check" onclick="selectMode('dark');">
+            <span class="slider round"></span>
+        <label>
+    </div>
+
+    <!-- JS -->
+    <script>
+        function selectMode(mode) {
+            let backColor;
+            let fontColor;
+            let displayTitle;
+
+            if (mode === "dark") {
+                backColor = "#1e2428";
+                fontColor = "white";
+                displayTitle = "Dark Mode";
+                check.addEventListener("click", () => {selectMode('light')});
+            } else if (mode === "light") {
+                backColor = "white";
+                fontColor = "black";
+                displayTitle = "Light Mode";
+                check.addEventListener("click", () => {selectMode('dark')});
+            }
+
+            console.log(displayTitle) /* Comprovació de que se'm multiplica la funció cada vegada jajaja */
+            document.getElementById("theme").style.backgroundColor = backColor;
+
+            document.getElementById("displayTitle").innerHTML = displayTitle;
+            document.getElementById("displayTitle").style.color = fontColor;
+            }
+    </script>
+</body>
+</html>

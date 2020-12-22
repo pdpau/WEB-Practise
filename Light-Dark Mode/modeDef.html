@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light-Dark</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="roundedSwitch.css">
+    <!-- TITLE Style -->
+    <style>
+        /* Insert the font from a file */
+        @font-face {
+            font-family: "Benguiat Bold";
+            src: url(benguiat-bold.ttf);
+        }
+        .displayTitle1 {
+            font-size: 35px;
+            font-family: 'Benguiat Bold', arial;
+            text-align: center;
+            margin: 150px 0 0 0;
+        }
+        .displayTitle2 {
+            font-size: 80px;
+            font-family: 'Benguiat Bold', arial;
+            text-align: center;
+            margin: 0 0 0 0;
+        }
+        /* Switch position */
+        .divSwitch {
+            margin: 15px auto auto auto;
+            padding: 5px;
+            width: 70px;
+            
+            /* Per fixar-ho al centre */
+            display: flex;
+            justify-content: center;
+        }
+        /* End of Switch position */
+    </style>
+    <!-- End of TITLE Style -->
+    <!-- End of CSS -->
+
+    <!-- JS -->
+    <script>
+        function selectMode(mode) {
+            let backColor;
+            let fontColor;
+
+            if (mode === "dark") {
+                backColor = "#1e2428";
+                fontColor = "white";
+                check.addEventListener("click", () => {selectMode('light')});
+            } else if (mode === "light") {
+                backColor = "white";
+                fontColor = "black";
+                check.addEventListener("click", () => {selectMode('dark')});
+            }
+
+            document.getElementById("theme").style.backgroundColor = backColor;
+            document.getElementById("displayTitle1").style.color = fontColor;
+            document.getElementById("displayTitle2").style.color = fontColor;
+            }
+    </script>
+    <!-- End of JS -->
+</head>
+
+<body class="theme" id="theme">
+    <div>
+        <p class="displayTitle1" id="displayTitle1">
+            WRITTEN AND<br>DIRECTED BY
+        </p>
+        <p class="displayTitle2" id="displayTitle2">
+            QUENTIN<br>TARANTINO
+        </p>
+    </div>
+    <div class="divSwitch">
+        <label class="switch">
+            <input type="checkbox" id="check" onclick="selectMode('dark');">
+            <span class="slider round"></span>
+        <label>
+    </div>
+</body>
+</html>
